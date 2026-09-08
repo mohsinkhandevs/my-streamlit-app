@@ -19,9 +19,7 @@ A minimal, interactive Exploratory Data Analysis (EDA) dashboard built with Stre
 
 ```
 Lab-04/
-├── data/
-│   └── Titanic-Dataset.csv     # Sample dataset
-├── linechart.py                # Main Streamlit application
+├── app.py                      # Main Streamlit application
 ├── requirements.txt            # Python dependencies
 └── README.md                   # Project documentation
 ```
@@ -35,5 +33,5 @@ Lab-04/
 
 2. **Run the application**:
    ```bash
-   streamlit run linechart.py
+   streamlit run app.py
    ```
