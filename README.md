@@ -19,7 +19,7 @@ A minimal, interactive Exploratory Data Analysis (EDA) dashboard built with Stre
 
 ```
 Lab-04/
-├── app.py                      # Main Streamlit application
+├── linechart.py                # Main Streamlit application
 ├── requirements.txt            # Python dependencies
 └── README.md                   # Project documentation
 ```
@@ -33,5 +33,5 @@ Lab-04/
 
 2. **Run the application**:
    ```bash
-   streamlit run app.py
+   streamlit run linechart.py
    ```
