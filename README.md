@@ -1,10 +1,10 @@
 # EDA Dashboard
 
-A minimal, interactive Exploratory Data Analysis (EDA) dashboard built with Streamlit.
+An interactive Exploratory Data Analysis (EDA) dashboard built with Streamlit.
 
 ## Features
 
-- **Dataset Ingestion**: Upload any CSV dataset or use the default Titanic dataset.
+- **Dataset Ingestion**: Upload any CSV dataset for analysis.
 - **Dataset Overview**:
   - Preview first 5 rows
   - Dataset shape (rows & columns)
@@ -15,23 +15,14 @@ A minimal, interactive Exploratory Data Analysis (EDA) dashboard built with Stre
   - **Numerical Attributes**: Value distribution histogram with frequency count.
   - **Categorical Attributes**: Frequency count bar chart.
 
-## Project Structure
-
-```
-Lab-04/
-├── linechart.py                # Main Streamlit application
-├── requirements.txt            # Python dependencies
-└── README.md                   # Project documentation
-```
-
 ## Setup & Run
 
-1. **Install dependencies**:
+1. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-2. **Run the application**:
+2. Run the application:
    ```bash
    streamlit run linechart.py
    ```

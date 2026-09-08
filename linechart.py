@@ -3,35 +3,28 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-# Page Configuration (changes browser tab header from Streamlit to EDA Dashboard)
 st.set_page_config(page_title="EDA Dashboard", page_icon="📊")
 
-# Page Title
 st.title("EDA Dashboard")
 st.caption("Exploratory Data Analysis Interface")
 
-# Sidebar - Dataset Controls
 st.sidebar.title("EDA Dashboard")
 st.sidebar.header("Dataset Controls")
-uploaded_file = st.sidebar.file_uploader("Upload CSV File for Analysis", type=["csv"])
+file = st.sidebar.file_uploader("Upload CSV File for Analysis", type=["csv"])
 
-# Load Dataset: from uploaded file, or default file if present
-if uploaded_file is not None:
-    df = pd.read_csv(uploaded_file)
+if file is not None:
+    df = pd.read_csv(file)
 elif os.path.exists("data/Titanic-Dataset.csv"):
     df = pd.read_csv("data/Titanic-Dataset.csv")
 else:
     df = None
 
-# If a dataset is available, display dashboard
 if df is not None:
-    # Sidebar - Attribute Selection
     st.sidebar.header("Attribute Selection")
-    columns = list(df.columns)
-    default_idx = columns.index("Age") if "Age" in columns else 0
-    selected_col = st.sidebar.selectbox("Select Attribute for Visualization", columns, index=default_idx)
+    cols = list(df.columns)
+    default_idx = cols.index("Age") if "Age" in cols else 0
+    selected_col = st.sidebar.selectbox("Select Attribute for Visualization", cols, index=default_idx)
 
-    # Automated Attribute Typing
     if pd.api.types.is_numeric_dtype(df[selected_col]):
         col_type = "Numerical"
     else:
@@ -39,7 +32,6 @@ if df is not None:
 
     st.sidebar.write(f"**Detected Type:** {col_type}")
 
-    # Main Content - Dataset Preview & Metadata
     st.header("Dataset Preview & Metadata")
 
     st.subheader("First 5 Rows:")
@@ -63,10 +55,9 @@ if df is not None:
     st.dataframe(missing_df)
 
     st.subheader("Statistical Summary (Numerical Attributes):")
-    numeric_summary = df.describe().T[["mean", "50%", "min", "max"]].rename(columns={"50%": "median"})
-    st.dataframe(numeric_summary)
+    num_summary = df.describe().T[["mean", "50%", "min", "max"]].rename(columns={"50%": "median"})
+    st.dataframe(num_summary)
 
-    # Main Content - Visualization Module
     st.header("Visualization")
 
     if col_type == "Numerical":
